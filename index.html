@@ -1,194 +1,88 @@
-<!doctype html>
-
-<html lang="en">
-
+<html>
 <head>
+  
+  <title>Seryoso na to</title>
+  
+ 
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Message for you</title>
-
-<link rel="stylesheet" href="style.css">
+  
+    
+  
+  
 
 </head>
-<style>
-html { 
-  background: url(data:image/png;base64,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) no-repeat center center fixed; 
+ <style>
+    p  {
+      text-align:center;
+      text-size-adjust:100px;
+      font-family:Cursive ;
+    }
+    h1 {
+      text-align:center;
+      color:black;
+      font-family:cursive;
+    }
+
+
+    .table-container {
+      size-adjust:100px;
+    text-align: center; /* Center the content within the container */
+}
+
+table {
+    size-adjust:100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse; /* Optional: collapses table borders */
+}
+
+th, td {
+    size-adjust:100px;
+    border: 0px solid black; /* Optional: adds borders to cells */
+    padding: 10px;
+}
+     }
+     td {
+      text-align:center;
+    }
+    html { 
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrkkkTfRxRhgoEtujxkK0Dp6-_hV7wzPFX-Tk34jZFyYgWT0w_MTwoyF4&s=10) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  {
-
 }
-
-margin: 0;
-
-padding: 0;
-
-box-sizing: border-box;
-
-body {
-
-display: flex;
-
-justify-content: center;
-
-align-items: center;
-
-min-height: 100vh;
-
-background: whitesmoke;
-
-font-family: Verdana, Geneva, Tahoma, sans-
-
-serif;
-
-.img {
-
-height: 100%;
-
-width: 100%;
-
-}
-
-h2 {
-
-text-align: center;
-
-font-size: 1.5em;
-
-color: #e94d58;
-
-margin: 15px 0;
-
-}
-
-.btn-group {
-
-width: 100%;
-
-height: 50px;
-
-display: flex;
-
-justify-content: center;
-
-margin-top: 50px;
-
-}
-
-button {
-
-}
-
-position: absolute;
-
-width: 150px;
-
-height: inherit;
-
-color: white;
-
-font-size: 1.2em;
-
-border-radius: 30px;
-
-outline: none;
-
-cursor: pointer;
-
-box-shadow: 0 2px 4px gray;
-
-border: 2px solid #e94d58;
-
-font-size: 1.2em;
-
-button:nth-child(1) {
-
-margin-left: -200px;
-
-background: #e94d58;
-
-color: white;
-
-}
-
-button:nth-child(2) {
-
-margin-right: -200px;
-
-background: #ffffff;
-
-}
-
-color: #e94d58;
-</style>
-
+    
+    
+    
+  </style>
 <body>
+  <h1>"Isang Tula Para lamang sa Iyo" </h1>
+  <p><i>Ang iyong kagandahan ay parang isang bituin, kase sa aking paningin ika'y nagniningning,<br>
+  milyon-milyon na bituin, pero ikaw lang kagandahang bituin na nagniningning.<br><br>
+  Sa mga mata mong ka kulay ng karagatan Ay doon ko lamang mapagmamasdan Ang nakakalunod mong kagandahan.<br><br>
+  Walang libro na mas hihigit pa sa librong aking isinulat na nag lalahad ng iyong walang kapantay na kagandahan.<br><br>
+  Kung ika'y nasa kalangitan sa gabi, isa kang buwan, dahil kahit gaano pa kadami ang bituin sa kalangitan wala paring papantay sa taglay mong kagandahan.<br><br>
+   Kung ang bawat patak ng ulan ay papuri,at sa bawat sinag ng araw ay isang papuri, Hindi ko pa rin maipahayag ang pagtataka, sa kagandahang nagniningning sa iyong titig</i></p>
+ <p></p>
 
-<div class="wrapper">
 
-<h2 class="question">Gusto kita ♡♡</h2>
-
-<h2 class="question">Pwede ba kitang mahalin??</h2>
-
-<img class="img" alt="img"
-
-src="">
-
-<div class="btn-group"> <button class="yes-btn">Yes</button> <button class="no-
-
-btn">No</button>
-
-</div>
-
-</div>
-
-<script>
-  const wrapper = document.querySelector(".wrapper");
-
-const question = document.querySelector(".question");
-
-const img = document.querySelector(".img");
-
-const yesBtn = document.querySelector(".yes-btn");
-
-const noBtn = document.querySelector(".no-btn");
-
-const secondQuestion = document.querySelectorAll(".question")[1];
-
-yesBtn.addEventListener("click", () => {
-
-question.innerHTML = "I like you";
-
-secondQuestion.innerHTML = "How about you?";
-
-img.src =
-
-})https://raw.githubusercontent.com/DzarelDeveloper/Img/main/AskCrush1.png";
-
-noBtn.addEventListener("mouseover", () => {
-
-const noBtnRect = noBtn.getBoundingClientRect();
-
-const maxX = window.innerWidth - noBtnRect.width;
-
-const maxy = window.innerHeight noBtnRect.height;
-
-ath.floor(Math.random()* maxx); const randomX = Math.floor(Math.
-
-const randomY = Math.floor(Math.random() * maxY);
-
-noBtn.style.left = randomX + "px";
-
-noBtn.style.top = randomY + "px";
-
-});
-</script>
-
+  
+  
+  <script> 
+    alert("WARNING!!")
+    alert("Hi")
+    alert("May sasabihin po ako sayo")
+    alert("Wag na pala")
+    alert("Sabing wag na")
+    alert("Wag mo na ituloy")
+    alert("Plss stop")
+    alert("Iss bahala ka dyan")
+    alert("Ayaw mo pa talaga tumigil")
+    alert("Last warining na to")
+    alert("Ayaw mo pa tumigil noh")
+    alert("Bahala kana dyan")
+    
+     </script>
 </body>
-
-</html>
+  </html>
