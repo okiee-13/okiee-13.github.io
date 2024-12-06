@@ -6,7 +6,7 @@
 </head>
 <style>body {
  
-  font-size: 25px;
+  font-size: 1px;
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
@@ -27,8 +27,8 @@ p {
 .poetry-container {
   text-align: center;
   position: relative;
-  width: 80%;
-  max-width: 600px;
+  width: 90%;
+  max-width: 70000px;
 }
 
 .overlay {
@@ -81,7 +81,7 @@ button:hover {
   letter-spacing: 1px;
 }
 
-/* Sparkle effect */
+
 .star-container {
   position: absolute;
   width: 100%;
@@ -122,12 +122,12 @@ button:hover {
       <button id="reveal">Hehehehe...</button>
     </div>
     <div id="content" class="hidden">
-      <h1 class="title">"Isang Tula Para Sa Iyong Kagandahan"</h1>
+      <h1 class="title" style="font-family:cursive;">"Isang Maliit Na Tula Para Sa Iyong Kagandahan"</h1>
       <div id="poem">
-        <p style="font-size:20px;"><i>Ang iyong kagandahan ay parang isang bituin,kase sa aking paningin ika'y nagniningning,<br>
-  milyon-milyon man ang mga bituin,pero ikaw lang ang kagandahang bituin na nagniningning.<br>
-  Sa mga mata mong ka kulay ng karagatan ay doon ko lamang mapagmamasdan Ang nakakalunod mong kagandahan.<br>
-   Kung ika'y nasa kalangitan sa gabi, isa kang buwan, dahil kahit gaano pa kadami ang bituin sa kalangitan wala paring papantay sa taglay mong kagandahan.<br>
+        <p style="font-size:15px;"><i>Ang iyong kagandahan ay parang isang bituin,kase sa aking paningin ika'y nagniningning,
+  ngunit milyon-milyon man ang mga bituin,pero ikaw lang ang kagandahang bituin na nagniningning.<br><br>
+  Sa mga mata mong ka kulay ng karagatan ay doon ko lamang mapagmamasdan Ang nakakalunod mong kagandahan.<br><br>
+   Kung ika'y nasa kalangitan sa gabi, isa kang buwan, dahil kahit gaano pa kadami ang bituin sa kalangitan wala paring papantay sa taglay mong kagandahan.<br><br>
    Kung ang bawat patak ng ulan ay papuri,at sa bawat sinag ng araw ay isang papuri,hindi ko pa rin maipahayag ang pagtataka,sa kagandahang nagniningning sa iyong titig.</i></p>
   
       </div>
@@ -138,13 +138,13 @@ button:hover {
   const overlay = document.querySelector(".overlay");
   const content = document.getElementById("content");
 
-  overlay.style.display = "none"; // Hide the overlay
-  content.classList.remove("hidden"); // Show the content
+  overlay.style.display = "none";
+  content.classList.remove("hidden"); 
 
   setTimeout(() => {
-    content.style.opacity = 1; // Gradually fade in the content
-    triggerSparkles(50); // Trigger sparkle effect
-  }, 100);
+    content.style.opacity = 1; 
+    triggerSparkles(100);
+      }, 100);
 });
 
 function triggerSparkles(count) {
@@ -162,10 +162,9 @@ function triggerSparkles(count) {
 
   document.body.appendChild(container);
 
-  // Remove the stars after animation
   setTimeout(() => {
     container.remove();
   }, 300000);
 }</script>
 </body>
-  </html>
+    </html>
