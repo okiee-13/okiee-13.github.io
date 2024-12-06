@@ -1,78 +1,171 @@
-<html>
-<head>
-  
-  <title>Hehehehehehehe.....</title>
-  
- 
-
-  
-    
-  
-  
-
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hehehehe...</title>
 </head>
- <style>
-    p  {
-      text-align:center;
-      font-size:25px;
-      *font-family:Cursive ;
-    }
-    h1 {
-      text-align:center;
-      color:black;
-      font-family:cursive;
-      font-size: 40px;
-    }
-
-
-    .table-container {
-      size-adjust:100px;
-    text-align: center; /* Center the content within the container */
+<style>body {
+ 
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  font-family: 'Georgia', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
-table {
-    size-adjust:100px;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse; /* Optional: collapses table borders */
+p {
+  font-size: 10px;
+  font-family: 'Georgia', serif;
+ }
+
+.poetry-container {
+  text-align: center;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
 }
 
-th, td {
-    size-adjust:100px;
-    border: 0px solid black; /* Optional: adds borders to cells */
-    padding: 10px;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
 }
-     }
-     td {
-      text-align:center;
-    }
-    html { 
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrkkkTfRxRhgoEtujxkK0Dp6-_hV7wzPFX-Tk34jZFyYgWT0w_MTwoyF4&s=10) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+
+button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background: #ff7eb3;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
-    
-    
-    
-  </style>
+
+button:hover {
+  background: #ff1e56;
+}
+
+.hidden {
+  display: none;
+}
+
+#content {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.title {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px #ffffff, 0 0 30px #ff7eb3;
+}
+
+#poem p {
+  font-size: 1px;
+  margin: 10px 0;
+  line-height: 1.8;
+  letter-spacing: 1px;
+}
+
+/* Sparkle effect */
+.star-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px #ff7eb3;
+  animation: sparkle 1.5s linear infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+</style>
 <body>
-  <h1>"Isang Tula Para lamang sa Iyo" </h1>
-  <p><i>Ang iyong kagandahan ay parang isang bituin, kase sa aking paningin ika'y nagniningning,<br>
-  milyon-milyon man ang mga bituin, pero ikaw lang ang kagandahang bituin na nagniningning.<br><br>
-  Sa mga mata mong ka kulay ng karagatan Ay doon ko lamang mapagmamasdan Ang nakakalunod mong kagandahan.<br><br>
-  Walang libro na mas hihigit pa sa librong aking isinulat na nag lalahad ng iyong walang kapantay na kagandahan.<br><br>
-  Kung ika'y nasa kalangitan sa gabi, isa kang buwan, dahil kahit gaano pa kadami ang bituin sa kalangitan wala paring papantay sa taglay mong kagandahan.<br><br>
-   Kung ang bawat patak ng ulan ay papuri,at sa bawat sinag ng araw ay isang papuri, Hindi ko pa rin maipahayag ang pagtataka, sa kagandahang nagniningning sa iyong titig</i></p>
-   
-   <br>
-       <br>   <br>   <br>   <br>
+  <div class="poetry-container">
+    <div class="overlay">
+      <button id="reveal">Hehehehe...</button>
+    </div>
+    <div id="content" class="hidden">
+      <h1 class="title">"Isang Tula Para Sa Iyong Kagandahan"</h1>
+      <div id="poem">
+        <p style="font-size:20px;"><i>Ang iyong kagandahan ay parang isang bituin,kase sa aking paningin ika'y nagniningning,<br>
+  milyon-milyon man ang mga bituin,pero ikaw lang ang kagandahang bituin na nagniningning.<br>
+  Sa mga mata mong ka kulay ng karagatan ay doon ko lamang mapagmamasdan Ang nakakalunod mong kagandahan.<br>
+   Kung ika'y nasa kalangitan sa gabi, isa kang buwan, dahil kahit gaano pa kadami ang bituin sa kalangitan wala paring papantay sa taglay mong kagandahan.<br>
+   Kung ang bawat patak ng ulan ay papuri,at sa bawat sinag ng araw ay isang papuri,hindi ko pa rin maipahayag ang pagtataka,sa kagandahang nagniningning sa iyong titig.</i></p>
+  
+      </div>
+    </div>
+  </div>
+  
+  <script>document.getElementById("reveal" ).addEventListener("click", function () {
+  const overlay = document.querySelector(".overlay");
+  const content = document.getElementById("content");
 
+  overlay.style.display = "none"; // Hide the overlay
+  content.classList.remove("hidden"); // Show the content
 
-  
-  
-  
+  setTimeout(() => {
+    content.style.opacity = 1; // Gradually fade in the content
+    triggerSparkles(50); // Trigger sparkle effect
+  }, 100);
+});
+
+function triggerSparkles(count) {
+  const container = document.createElement("div");
+  container.classList.add("star-container");
+
+  for (let i = 0; i < count; i++) {
+    const star = document.createElement("div");
+    star.classList.add("star");
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDuration = Math.random() * 2 + 1 + "s";
+    container.appendChild(star);
+  }
+
+  document.body.appendChild(container);
+
+  // Remove the stars after animation
+  setTimeout(() => {
+    container.remove();
+  }, 300000);
+}</script>
 </body>
   </html>
-
