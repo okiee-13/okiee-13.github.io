@@ -1,195 +1,274 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <title>Login Form</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can we have a Couple pfp 🥺</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-
-    * {
-
-      box-sizing: border-box;
-
-      margin: 0;
-
-      padding: 0;
-
-      font-family: 'Segoe UI', sans-serif;
-
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-
-      background: #f1f1f1;
-
+      min-height: 100vh;
+      background: #ffe0ec;
       display: flex;
-
-      justify-content: center;
-
+      flex-direction: column;
       align-items: center;
-
-      height: 100vh;
-
+      justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      overflow: hidden;
+      position: relative;
     }
 
-    .login-box {
-
-      background: #f1f1f1;
-
-      padding: 40px 30px;
-
-      border-radius: 20px;
-
-      box-shadow: 10px 10px 20px #d9d9d9, -10px -10px 20px #ffffff;
-
-      width: 320px;
-
+    /* Floating hearts background */
+    .heart-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .heart-bg span {
+      position: absolute;
+      bottom: -60px;
+      font-size: 1.5rem;
+      animation: floatUp linear infinite;
+      opacity: 0;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
     }
 
-    .login-box h2 {
-
+    .card {
+      position: relative;
+      z-index: 1;
+      background: white;
+      border-radius: 32px;
+      padding: 48px 40px 40px;
       text-align: center;
-
-      margin-bottom: 30px;
-
-      color: #222;
-
+      box-shadow: 0 20px 60px rgba(255, 100, 130, 0.25);
+      max-width: 420px;
+      width: 90%;
     }
 
-    .login-box label {
-
+    .bear-emoji {
+      font-size: 4rem;
       display: block;
+      margin-bottom: 12px;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
 
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.7rem;
+      color: #e8306a;
       margin-bottom: 8px;
-
-      color: #333;
-
+      line-height: 1.3;
     }
 
-    .login-box input[type="email"],
-
-    .login-box input[type="password"] {
-
-      width: 100%;
-
-      padding: 12px 15px;
-
-      margin-bottom: 20px;
-
-      border: none;
-
-      border-radius: 12px;
-
-      background: #f1f1f1;
-
-      box-shadow: inset 6px 6px 10px #d9d9d9, inset -6px -6px 10px #ffffff;
-
-      outline: none;
-
-      font-size: 14px;
-
-      color: #333;
-
+    .subtitle {
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-bottom: 32px;
     }
 
-    .login-box button {
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
 
-      width: 100%;
-
-      padding: 12px 15px;
-
+    #yesBtn {
+      background: linear-gradient(135deg, #3ecf5e, #27ae60);
+      color: white;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      padding: 18px 60px;
       border: none;
-
-      border-radius: 12px;
-
-      background: #f1f1f1;
-
-      box-shadow: 6px 6px 10px #d9d9d9, -6px -6px 10px #ffffff;
-
-      font-weight: bold;
-
-      color: #007bff;
-
-      font-size: 16px;
-
+      border-radius: 20px;
       cursor: pointer;
-
-      transition: all 0.2s ease;
-
+      box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-origin: center;
+    }
+    #yesBtn:hover {
+      box-shadow: 0 12px 30px rgba(46, 204, 113, 0.5);
     }
 
-    .login-box button:active {
-
-      box-shadow: inset 6px 6px 10px #d9d9d9, inset -6px -6px 10px #ffffff;
-
+    #noBtn {
+      background: linear-gradient(135deg, #ff4f72, #e8306a);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(232, 48, 106, 0.35);
+      transition: transform 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
+      transform-origin: center;
+      max-width: 280px;
+      line-height: 1.4;
     }
+    #noBtn:hover { filter: brightness(1.1); }
 
-    .login-box .forgot {
-
-      margin-top: 15px;
-
+    /* Celebrate overlay */
+    #celebrateScreen {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #ff6b9d, #ff4757);
+      z-index: 100;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.5s ease;
+    }
+    #celebrateScreen.show { display: flex; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    #celebrateScreen h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: white;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 16px;
       text-align: center;
-
-      font-size: 14px;
-
-      color: #333;
-
+      padding: 0 20px;
     }
-
-    .login-box .forgot a {
-
-      color: red;
-
-      text-decoration: none;
-
-      font-weight: bold;
-
-      margin-left: 5px;
-
+    #celebrateScreen p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 40px;
     }
-
-    .login-box .forgot a:hover {
-
-      text-decoration: underline;
-
+    .big-hearts {
+      font-size: 4rem;
+      animation: bigBounce 1s ease-in-out infinite;
     }
-
+    @keyframes bigBounce {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.2); }
+    }
   </style>
-
 </head>
-
 <body>
 
-  <div class="login-box">
+  <!-- Background hearts -->
+  <div class="heart-bg" id="heartBg"></div>
 
-    <h2>Login</h2>
+  <div class="card">
+    <span class="bear-emoji">🥺</span>
+    <h1>Can we have couple pfp?</h1>
+    <p class="subtitle">Think carefully... 👀</p>
 
-    <form>
-
-      <label for="email">Email</label>
-
-      <input type="email" id="email" placeholder="Enter your email" required>
-
-      <label for="password">Password</label>
-
-      <input type="password" id="password" placeholder="Enter your password" required>
-
-      <button type="submit">Sign In</button>
-
-      <div class="forgot">
-
-        Forgot Password? <a href="okiee-13.github.io" target="_blank">click here</a>
-
-      </div>
-
-    </form>
-
+    <div class="buttons">
+      <button id="yesBtn">Yes 💚</button>
+      <button id="noBtn">Nope, not interested 😒</button>
+    </div>
   </div>
 
-</body>
+  <!-- Celebration screen -->
+  <div id="celebrateScreen">
+    <div class="big-hearts">💕🎉💕</div>
+    <h2>Yayyyy!! You said YES! 🎉🎉🎉</h2>
+    <p>Best decision ever! 🎉</p>
+    <div class="big-hearts">💖💖💖</div>
+  </div>
 
+  <script>
+    // Different texts for the No button on each press
+    const noTexts = [
+      "Nope, not interested 😒",
+      "Still no. Hard pass. 🙅",
+      "Bro... just say yes 😤",
+      "Are you sure? 😕",
+      "Think again... 😕",
+      "Please stop asking, I'm busy 😫",
+      "NO means NO... but like, reconsider? 👉👈",
+      "Hmph....😒😒😒",
+      "What part of no don't you understand 😭",
+      "Okay fine... maybe? No wait— NO 😳",
+      "I'm legally not allowed to say yes 📜",
+      "I'm not sure... 😕",
+      "Error 404: Yes not found 💻",
+      "I'm busy... 🕒",
+      "I need to focus on my studies... 📚",
+      "My imaginary friend said no too 👻",
+      "Come on... just say YES already!! 🥺",
+    ];
+
+    let noCount = 0;
+    let noScale = 1;
+    let yesScale = 1;
+
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const celebrateScreen = document.getElementById('celebrateScreen');
+
+    noBtn.onclick = () => {
+      noCount++;
+
+      // Change text
+      const idx = Math.min(noCount, noTexts.length - 1);
+      noBtn.textContent = noTexts[idx];
+
+      // Shrink No, grow Yes
+      noScale = Math.max(noScale - 0.08, 0.3);
+      yesScale += 0.15;
+
+      noBtn.style.transform = scale(${noScale});
+      yesBtn.style.transform = scale(${yesScale});
+
+      // Hide No button after many presses
+      if (noScale <= 0.32) {
+        noBtn.style.opacity = '0';
+        noBtn.style.pointerEvents = 'none';
+      }
+    };
+
+    yesBtn.onclick = () => {
+      celebrateScreen.classList.add('show');
+      launchHearts(80);
+      sendTelegramNotification();
+    };
+
+    function sendTelegramNotification() {
+      const token = '8990546226:AAHCu7Vb7Y3SBEX0ElmyxaTUmY5silRKQm4';
+      const chatId = '6380992037';
+      const message = '💕 SHE SAID YES!! 🎉\n\nYour valentine just clicked the YES button! 🥰🍫🎂';
+      fetch(https://api.telegram.org/bot${token}/sendMessage, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      });
+    }
+
+    // Generate background floating hearts
+    function launchHearts(count) {
+      const bg = document.getElementById('heartBg');
+      bg.innerHTML = '';
+      const emojis = ['❤️','💕','💖','💗','💓','🩷','💝'];
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('span');
+        s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        s.style.left = Math.random() * 100 + 'vw';
+        s.style.fontSize = (1 + Math.random() * 2) + 'rem';
+        s.style.animationDuration = (2 + Math.random() * 4) + 's';
+        s.style.animationDelay = (Math.random() * 4) + 's';
+        bg.appendChild(s);
+      }
+    }
+
+    // Initial gentle hearts
+    launchHearts(30);
+  </script>
+</body>
 </html>
